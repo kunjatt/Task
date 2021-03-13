@@ -1,0 +1,55 @@
+<template>
+  <div class="container-fluid d-flex justify-content-between w-75 mx-auto mt-5 position-relative">
+      <div class="w-30 text-center">
+        <h3>Welcome to FDN-Shop</h3>
+        <img class="img" src="../assets/fdn.png" alt="">
+      </div>
+      <div class="w-50 align-self-center">
+        <div class="">
+          <div id="login" class="p-5">
+            <div class="mb-3 text-center">
+              <h4>Login</h4>
+            </div>
+            <form @submit.prevent="login" class="w-100 mb-3 text-start" id="form-login">
+              <div class="mb-3 border-bottom">
+                <input type="email" class="form-control border border-0" placeholder="email" v-model="user.email">
+              </div>
+              <div class="mb-3 border-bottom">
+                <input type="password" class="form-control border border-0" placeholder="password" v-model="user.password">
+              </div>
+              <button type="submit" class="btn btn-outline-dark w-100 rounded-0" id="submit-login">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'FormLogin',
+  data () {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    login () {
+      this.$store.dispatch('login', this.user)
+    }
+  }
+}
+</script>
+
+<style>
+img {
+  width: 350px;
+  height: 400px;
+}
+.logo {
+  top: -5rem;
+}
+</style>
